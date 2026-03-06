@@ -1,54 +1,36 @@
-# Binance Real-Time Data Pipeline & Predictive Modeling
+# 🚀 Binance Real-Time Data Pipeline & Dual-Model Elastic Net
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 
-A multi-stage data engineering project connecting high-performance C++ data collection with Python-based machine learning and MySQL persistence.
+## 🏗️ Project Workflow
 
-## 🏗️ System Architecture & Data Flow
+### 1. C++ Data Collection
+* **API Pull:** Pulled Binance API information in C++ using `libcurl`.
+* **Processing:** Converted the raw data to **JSON** format.
+* **Output:** Pushed the structured data to a **CSV** file.
 
-This project implements a complete data lifecycle. The diagram below illustrates how raw API data is ingested by C++, bridged to Python via CSV, cleaned, and persisted in MySQL for analysis.
 
-![[Data Pipeline Flow]](./assets/data_pipeline.png)
 
----
-
-## 🛠 Project Components
-
-### 1. Data Ingestion (C++)
-* **API Integration:** Utilizes `libcurl` to interface with Binance REST/WebSocket endpoints.
-* **Data Transformation:** Parses raw responses into **JSON** format.
-* **Buffered Output:** Streams processed trade data into local **CSV** files.
-
-### 2. Data Orchestration (Python)
-* **File Management:** Python monitors for new CSV files, ingests the data, and **deletes the file** upon successful processing to manage disk overhead.
-* **ETL Pipeline:** Handles data normalization, type casting, and feature engineering.
-* **Persistence:** Commits cleaned datasets to a **MySQL** database for long-term historical analysis.
+### 2. Python Orchestration & Database
+* **File Management:** Python takes the CSV and **deletes it** immediately after reading.
+* **ETL:** Python cleans and processes the CSV data.
+* **Storage:** Pushes the finalized data into a **MySQL database**.
 
 ---
 
 ### 3. Machine Learning & Benchmarking
+Once enough data is available in the database, the project moves to the training phase:
+* **Dual Training:** I will train the data using my own **hand-coded Elastic Net** and compared against **Scikit-learn’s** version.
+* **Live Comparison:** The system will pull new API data and compare the predictions of the two models to see how they perform.
 
-The final stage is a comparative analysis of regularization techniques, visualizing the tradeoff between L1 (Lasso) and L2 (Ridge) penalties in Elastic Net.
 
-![[Elastic Net Path]](./assets/elastic_net_path.png)
-
-The project implements both:
-* **Custom Implementation:** A scratch-built **Elastic Net** regression model.
-* **Standard Implementation:** Scikit-learn's `ElasticNet` for benchmarking.
-
-The following chart illustrates the target optimization by comparing the model's predictions (Rule) against the actual Binance trade data (Basis).
-
-![[Prediction vs Actual]](./assets/prediction_vs_actual.png)
 
 ---
 
 ## 📂 Project Structure
-* `/cppbinace` - C++ Source: API clients, JSON parsers, and CSV exporters.
-* `/bianpyt` - Python Source: Database connectors, file cleanup logic, and ML model comparisons.
-* `/assets` - Directory containing architectural and statistical diagrams.
+* `/cppbinace` - C++ Source (libcurl, JSON, CSV Writer)
+* `/bianpyt` - Python Scripts (CSV Cleaner, MySQL Connector, ML Models)
 
 ---
-
-## 🚀 Setup & Execution
-1.  **Database:** Ensure MySQL is running and the schema is initialized.
-2.  **Producer:** Run the C++ executable to start pulling live data.
-3.  **Consumer:** Execute the Python monitoring script to move data from CSV to SQL.
-4.  **Analysis:** Run the training scripts once the SQL row count reaches the required threshold.
+*Binance Data Engineering & Machine Learning Project*
