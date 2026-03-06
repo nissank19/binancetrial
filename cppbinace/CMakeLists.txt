@@ -5,7 +5,7 @@ project(cooking)
 set(CMAKE_CXX_STANDARD 17)
 
 # curl folder
-set(CURL_DIR "C:/Users/fabia/Downloads/curl-8.18.0_4-win64-mingw/curl-8.18.0_4-win64-mingw")
+set(CURL_DIR "curl dire")
 
 # nlohmann_json (header-only, just point to the include folder)
 

@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="190f2434-509b-45fc-ae78-f59e75689245" name="Changes" comment="changed true/false">
-      <change beforePath="$PROJECT_DIR$/cleaner.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleaner.py" afterDir="false" />
-    </list>
+    <list default="true" id="190f2434-509b-45fc-ae78-f59e75689245" name="Changes" comment="changed true/false" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +18,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -28,12 +26,12 @@
     &quot;assignee&quot;: &quot;nissank19&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/nissank19/cpplibcurl.git&quot;,
-    &quot;accountId&quot;: &quot;083fb189-bb1f-4969-a86b-2ae1dcb781c1&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/nissank19/binancetrial.git",
+    "accountId": "083fb189-bb1f-4969-a86b-2ae1dcb781c1"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -47,7 +45,7 @@
   "keyToString": {
     "Python.cleaner.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/fabia/OneDrive/Desktop/yeso/binanceproj/bianpyt",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
