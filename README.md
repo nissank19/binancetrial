@@ -1,42 +1,54 @@
-# 🚀 Binance Real-Time Data & Dual-Model Elastic Net
-![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+# Binance Real-Time Data Pipeline & Predictive Modeling
 
-## 🏗️ The Data Pipeline
-This project implements a full-cycle automated trading data pipeline, bridging high-performance systems with statistical analysis.
+A multi-stage data engineering project connecting high-performance C++ data collection with Python-based machine learning and MySQL persistence.
 
-### 1. Data Ingestion (C++)
-* **Fetcher:** Uses `libcurl` to pull real-time market information from the Binance API.
-* **Serialization:** Converts raw API responses into structured **JSON**.
-* **Storage:** Pushes the processed data into a local **CSV** file for the Python consumer.
+## 🏗️ System Architecture & Data Flow
 
-### 2. Processing & Storage (Python)
-* **File Handling:** Python monitors the directory, ingests the CSV, and **immediately deletes it** to maintain a clean state.
-* **Data Cleaning:** Cleans and prepares the features (Price, Quantity, Time) for the database.
-* **Database:** Pushes the final cleaned dataset into a **MySQL** database for long-term persistence.
+This project implements a complete data lifecycle. The diagram below illustrates how raw API data is ingested by C++, bridged to Python via CSV, cleaned, and persisted in MySQL for analysis.
 
-### 3. Machine Learning (The Dual-Fit Strategy)
-Once sufficient data is accumulated in MySQL, the system performs a comparison study:
-* **Custom Model:** A hand-coded **Elastic Net** implementation.
-* **Scikit-Learn:** The industry-standard `sklearn.linear_model.ElasticNet`.
-* **Verification:** The system pulls new live API data and compares the predictive accuracy of both models.
+![[Data Pipeline Flow]](./assets/data_pipeline.png)
 
 ---
 
-## 🧠 Discrete Math Applications (The "Big 7")
-This architecture serves as a practical lab for the following Discrete Mathematics concepts:
+## 🛠 Project Components
 
-* **Q4: Relations** – Mapping API JSON objects to SQL relational table rows.
-* **Q5: Induction** – The recursive cycle of CSV generation ($P(n)$) and deletion ($P(n+1)$).
-* **Q6: Modulo** – Transforming Unix timestamps into cyclical time features using $t \pmod{24}$.
-* **Q7: Resolution** – Using **L1 Regularization** to "resolve" and eliminate non-significant market features.
+### 1. Data Ingestion (C++)
+* **API Integration:** Utilizes `libcurl` to interface with Binance REST/WebSocket endpoints.
+* **Data Transformation:** Parses raw responses into **JSON** format.
+* **Buffered Output:** Streams processed trade data into local **CSV** files.
+
+### 2. Data Orchestration (Python)
+* **File Management:** Python monitors for new CSV files, ingests the data, and **deletes the file** upon successful processing to manage disk overhead.
+* **ETL Pipeline:** Handles data normalization, type casting, and feature engineering.
+* **Persistence:** Commits cleaned datasets to a **MySQL** database for long-term historical analysis.
+
+---
+
+### 3. Machine Learning & Benchmarking
+
+The final stage is a comparative analysis of regularization techniques, visualizing the tradeoff between L1 (Lasso) and L2 (Ridge) penalties in Elastic Net.
+
+![[Elastic Net Path]](./assets/elastic_net_path.png)
+
+The project implements both:
+* **Custom Implementation:** A scratch-built **Elastic Net** regression model.
+* **Standard Implementation:** Scikit-learn's `ElasticNet` for benchmarking.
+
+The following chart illustrates the target optimization by comparing the model's predictions (Rule) against the actual Binance trade data (Basis).
+
+![[Prediction vs Actual]](./assets/prediction_vs_actual.png)
 
 ---
 
 ## 📂 Project Structure
-* `/cppbinace` - C++ Source (libcurl, JSON, CSV Writer)
-* `/bianpyt` - Python Scripts (CSV Cleaner, MySQL Connector, ML Models)
+* `/cppbinace` - C++ Source: API clients, JSON parsers, and CSV exporters.
+* `/bianpyt` - Python Source: Database connectors, file cleanup logic, and ML model comparisons.
+* `/assets` - Directory containing architectural and statistical diagrams.
 
 ---
-*Developed as part of the "Big 7" Discrete Math Study Project.*
+
+## 🚀 Setup & Execution
+1.  **Database:** Ensure MySQL is running and the schema is initialized.
+2.  **Producer:** Run the C++ executable to start pulling live data.
+3.  **Consumer:** Execute the Python monitoring script to move data from CSV to SQL.
+4.  **Analysis:** Run the training scripts once the SQL row count reaches the required threshold.
