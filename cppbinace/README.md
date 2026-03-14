@@ -1,0 +1,2 @@
+Tried to use vckpg to install libcurl but couldnt cuz i'm using clion and not vs code, downloaded pre compiled binariesfor mingw clion compiler
+I configured the build system via CMake, setting up header inclusion paths and implementing dynamic linking using the libcurl.dll.a import library. This setup ensures that the executable remains efficient while successfully resolving transitive dependencies like SSL, nghttp2, and Windows-specific networking protocols (ws2_32).

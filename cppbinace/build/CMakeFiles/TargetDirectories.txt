@@ -1,0 +1,3 @@
+/app/cppbinace/build/CMakeFiles/CryptoTracker.dir
+/app/cppbinace/build/CMakeFiles/edit_cache.dir
+/app/cppbinace/build/CMakeFiles/rebuild_cache.dir

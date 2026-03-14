@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/CryptoTracker.dir/link.d CMakeFiles/CryptoTracker.dir/main.cpp.o -o CryptoTracker  /usr/lib/x86_64-linux-gnu/libcurl.so
